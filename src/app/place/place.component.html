@@ -1,0 +1,11 @@
+<h1>{{title}}</h1>
+<!-- call angular google map component to generate map-->
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng">
+    <agm-info-window>La ferme des prairies</agm-info-window>
+  </agm-marker>
+</agm-map>
+
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.grandsgites.com/gite-10-ferme-prairies-1763.htm" allowfullscreen></iframe>
+</div>

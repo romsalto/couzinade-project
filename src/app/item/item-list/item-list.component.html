@@ -1,0 +1,378 @@
+<div class="card">
+    <h2 class="card-header">Softs</h2>
+    <div class="card-body" *ngIf="categories.Soft[0] !== undefined">
+        <div class="d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-5">Koi</th>
+                        <th class="col-2">Quantité</th>
+                        <th class="col-2">Ki</th>
+                        <th class="col-2">commentaires</th>
+                        <th class="col-1">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Soft" class="d-flex">
+                        <td class="col-sm-5">{{ item.name }}</td>
+                        <td class="col-sm-2">{{ item.quantity }}</td>
+                        <td class="col-sm-2">{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td class="col-sm-2">{{ item.comments }}</td>
+                        <td class="col-sm-1">
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-md-none">
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Koi</th>
+                        <th>Quantité</th>
+                        <th>Ki</th>
+                        <th>commentaires</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Soft">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td>{{ item.comments }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-body" *ngIf="categories.Soft[0] === undefined">
+        <h3>
+            <span class="oi oi-x" style="color: red;"></span> Rien pour l'instant !</h3>
+    </div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+    <h2 class="card-header">Alcool</h2>
+    <div class="card-body" *ngIf="categories.Alcool[0] !== undefined">
+        <div class="d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-5">Koi</th>
+                        <th class="col-2">Quantité</th>
+                        <th class="col-2">Ki</th>
+                        <th class="col-2">commentaires</th>
+                        <th class="col-1">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Alcool" class="d-flex">
+                        <td class="col-sm-5">{{ item.name }}</td>
+                        <td class="col-sm-2">{{ item.quantity }}</td>
+                        <td class="col-sm-2">{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td class="col-sm-2">{{ item.comments }}</td>
+                        <td class="col-sm-1">
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-md-none">
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Koi</th>
+                        <th>Quantité</th>
+                        <th>Ki</th>
+                        <th>commentaires</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Alcool">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td>{{ item.comments }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="card-body" *ngIf="categories.Alcool[0] === undefined">
+        <h3>
+            <span class="oi oi-x" style="color: red;"></span> Rien pour l'instant !</h3>
+    </div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+    <h2 class="card-header">Nourriture</h2>
+    <div class="card-body" *ngIf="categories.Nourriture[0] !== undefined">
+        <div class="d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-5">Koi</th>
+                        <th class="col-2">Quantité</th>
+                        <th class="col-2">Ki</th>
+                        <th class="col-2">commentaires</th>
+                        <th class="col-1">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Nourriture" class="d-flex">
+                        <td class="col-sm-5">{{ item.name }}</td>
+                        <td class="col-sm-2">{{ item.quantity }}</td>
+                        <td class="col-sm-2">{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td class="col-sm-2">{{ item.comments }}</td>
+                        <td class="col-sm-1">
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <table class="table table-hover table-responsive d-md-none">
+            <thead>
+                <tr>
+                    <th>Koi</th>
+                    <th>Quantité</th>
+                    <th>Ki</th>
+                    <th>commentaires</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of categories.Nourriture">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.user.prenom }} {{ item.user.nom }}</td>
+                    <td>{{ item.comments }}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                            <span class="oi oi-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-body" *ngIf="categories.Nourriture[0] === undefined">
+        <h3>
+            <span class="oi oi-x" style="color: red;"></span> Rien pour l'instant !</h3>
+    </div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+    <h2 class="card-header">Intendance</h2>
+    <div class="card-body" *ngIf="categories.Intendance[0] !== undefined">
+        <div class="d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-5">Koi</th>
+                        <th class="col-2">Quantité</th>
+                        <th class="col-2">Ki</th>
+                        <th class="col-2">commentaires</th>
+                        <th class="col-1">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Intendance" class="d-flex">
+                        <td class="col-sm-5">{{ item.name }}</td>
+                        <td class="col-sm-2">{{ item.quantity }}</td>
+                        <td class="col-sm-2">{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td class="col-sm-2">{{ item.comments }}</td>
+                        <td class="col-sm-1">
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-md-none">
+            <table class="table table-hover table-responsive d-md-none">
+                <thead>
+                    <tr>
+                        <th>Koi</th>
+                        <th>Quantité</th>
+                        <th>Ki</th>
+                        <th>commentaires</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Intendance">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td>{{ item.comments }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="card-body" *ngIf="categories.Intendance[0] === undefined">
+        <h3>
+            <span class="oi oi-x" style="color: red;"></span> Rien pour l'instant !</h3>
+    </div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+    <h2 class="card-header">Matériel</h2>
+    <div class="card-body" *ngIf="categories.Materiel[0] !== undefined">
+        <div class="d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-5">Koi</th>
+                        <th class="col-2">Quantité</th>
+                        <th class="col-2">Ki</th>
+                        <th class="col-2">commentaires</th>
+                        <th class="col-1">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Materiel" class="d-flex">
+                        <td class="col-sm-5">{{ item.name }}</td>
+                        <td class="col-sm-2">{{ item.quantity }}</td>
+                        <td class="col-sm-2">{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td class="col-sm-2">{{ item.comments }}</td>
+                        <td class="col-sm-1">
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-md-none">
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Koi</th>
+                        <th>Quantité</th>
+                        <th>Ki</th>
+                        <th>commentaires</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Materiel">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td>{{ item.comments }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-body" *ngIf="categories.Materiel[0] === undefined">
+        <h3>
+            <span class="oi oi-x" style="color: red;"></span> Rien pour l'instant !</h3>
+    </div>
+</div>
+
+<div class="card" style="margin-top:10px;">
+    <h2 class="card-header">Autre</h2>
+    <div class="card-body" *ngIf="categories.Autre[0] !== undefined">
+        <div class="d-none d-md-block">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="d-flex">
+                        <th class="col-5">KoiA</th>
+                        <th class="col-2">Quantité</th>
+                        <th class="col-2">Ki</th>
+                        <th class="col-2">commentaires</th>
+                        <th class="col-1">actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Autre" class="d-flex">
+                        <td class="col-sm-5">{{ item.name }}</td>
+                        <td class="col-sm-2">{{ item.quantity }}</td>
+                        <td class="col-sm-2">{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td class="col-sm-2">{{ item.comments }}</td>
+                        <td class="col-sm-1">
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="d-md-none">
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Koi</th>
+                        <th>Quantité</th>
+                        <th>Ki</th>
+                        <th>commentaires</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of categories.Autre">
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.user.prenom }} {{ item.user.nom }}</td>
+                        <td>{{ item.comments }}</td>
+                        <td>
+                            <button class="btn btn-danger" (click)="onDelBtnClick(item)" [disabled]="item.user.id !== this.userService.getLoggedUser().id">
+                                <span class="oi oi-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="card-body" *ngIf="categories.Autre[0] === undefined">
+        <h3>
+            <span class="oi oi-x" style="color: red;"></span> Rien pour l'instant !</h3>
+    </div>
+</div>

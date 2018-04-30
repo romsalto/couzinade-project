@@ -1,0 +1,108 @@
+<a routerLink="/add-activity" class="btn btn-success" style="margin-top:10px;">Proposer une activité</a>
+<div class="card d-none d-md-block" style="margin-top:10px;">
+    <h2 class="card-header">Activités</h2>
+    <div class="card-body" *ngIf="activities.length === 0">
+        <h5>Pas encore d'activités proposées...</h5>
+    </div>
+    <div class="card-body" *ngIf="activities.length > 0">
+        <table class="table table-hover">
+            <thead>
+                <tr class="d-flex">
+                    <th class="col-6">Nom</th>
+                    <th class="col-1">Lien</th>
+                    <th class="col-2">Participants</th>
+                    <th class="col-2">Participer</th>
+                    <th class="col-1">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let activity of activities" class="d-flex">
+                    <td class="col-sm-6">{{ activity.name }}</td>
+                    <td class="col-sm-1">
+                        <a href="{{activity.link}}" class="btn btn-primary" *ngIf="activity.link !== undefined && activity.link !== ''">Voir</a>
+                        <span *ngIf="activity.link === undefined || activity.link === ''">Pas de lien</span>
+                    </td>
+                    <td class="col-sm-2">
+                        <span *ngIf="activity.users === undefined || activity.users[0] === undefined">Pas de participants</span>
+                        <span *ngFor="let user of activity.users">{{ user.nom }} {{ user.prenom }}
+                            <br>
+                        </span>
+                    </td>
+                    <td class="col-sm-2">
+                        <button class="btn btn-primary" (click)="onParticipateClick(activity)" *ngIf="!isAlreadyParticipating(activity)">Participer</button>
+                        <button class="btn btn-danger" (click)="onNotParticipateClick(activity)" *ngIf="isAlreadyParticipating(activity)">Ne plus participer</button>
+                    </td>
+                    <td class="col-sm-1">
+                        <button class="btn btn-danger" (click)="open(content, activity)">
+                            <span class="oi oi-x"></span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Supprimer activité ?</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Etes-vous sur de vouloir supprimer l'activité ?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="c('remove activity')">Supprimer</button>
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
+    </div>
+</ng-template>
+
+
+<div class="card d-md-none" style="margin-top:10px;">
+    <h2 class="card-header">Activités</h2>
+    <div class="card-body" *ngIf="activities.length === 0">
+        <h5>Pas encore d'activités proposées...</h5>
+    </div>
+    <div class="card-body container-fluid" *ngIf="activities.length > 0">
+        <div class="col-12">
+            <table class="table table-hover table-responsive col-12">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Lien</th>
+                        <th>Participants</th>
+                        <th>Participer</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let activity of activities">
+                        <td>{{ activity.name }}</td>
+                        <td>
+                            <a href="{{activity.link}}" class="btn btn-primary" *ngIf="activity.link !== undefined && activity.link !== ''">Voir</a>
+                            <span *ngIf="activity.link === undefined || activity.link === ''">Pas de lien</span>
+                        </td>
+                        <td>
+                            <span *ngIf="activity.users === undefined || activity.users[0] === undefined">Pas de participants</span>
+                            <span *ngFor="let user of activity.users">{{ user.nom }} {{ user.prenom }}
+                                <br>
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" (click)="onParticipateClick(activity)" *ngIf="!isAlreadyParticipating(activity)">Participer</button>
+                            <button class="btn btn-danger" (click)="onNotParticipateClick(activity)" *ngIf="isAlreadyParticipating(activity)">Ne plus participer</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="open(content, activity)">
+                                <span class="oi oi-x"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

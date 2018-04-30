@@ -1,0 +1,39 @@
+<a routerLink="/kiRameneKoi" class="btn btn-primary" style="margin-top:10px;">
+  <span class="oi oi-chevron-left"></span>
+  Retour à la liste
+</a>
+<div class="card" style="margin-top:10px;">
+  <h2 class="card-header">Ajouter un Koi</h2>
+  <div class="card-body">
+    <form [formGroup]="itemForm" (ngSubmit)="onSubmitForm()">
+      <div class="form-group">
+        <label for="name">Koi </label>
+        <input type="text" name="name" id="name" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantité </label>
+        <span class="badge badge-pill badge-dark" placement="right" ngbPopover="Indiquez la quantité ramenée. Exemples: 5 paquets, 2 litres, 3kg"
+          popoverTitle="Quantité" triggers="mouseenter:mouseleave">
+          ?
+        </span>
+        <input type="text" name="quantity" id="quantity" class="form-control" formControlName="quantity">
+      </div>
+      <div class="form-group">
+        <label for="category">Catégorie </label>
+        <select name="category" id="category" class="form-control" formControlName="category">
+          <option value="Soft">Soft</option>
+          <option value="Alcool">Alcool</option>
+          <option value="Nourriture">Nourriture</option>
+          <option value="Intendance">Intendance</option>
+          <option value="Matériel">Matériel</option>
+          <option value="Autre">Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="comments">Commentaires</label>
+        <input type="text" name="comments" id="comments" class="form-control" formControlName="comments">
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="itemForm.invalid">Ajouter</button>
+    </form>
+  </div>
+</div>
